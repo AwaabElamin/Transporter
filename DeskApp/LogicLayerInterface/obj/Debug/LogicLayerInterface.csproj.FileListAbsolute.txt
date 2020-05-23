@@ -1,0 +1,17 @@
+F:\Transporter\DeskApp\LogicLayerInterface\obj\Debug\LogicLayerInterface.csproj.CoreCompileInputs.cache
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\LogicLayerInterface.dll.config
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\LogicLayerInterface.dll
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\LogicLayerInterface.pdb
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataAccessLayer.dll
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataAccessLayerInterface.dll
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataObjectLayer.dll
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataAccessLayerInterface.pdb
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataAccessLayerInterface.dll.config
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataAccessLayer.pdb
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataAccessLayer.dll.config
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataObjectLayer.pdb
+F:\Transporter\DeskApp\LogicLayerInterface\bin\Debug\DataObjectLayer.dll.config
+F:\Transporter\DeskApp\LogicLayerInterface\obj\Debug\LogicLayerInterface.csprojAssemblyReference.cache
+F:\Transporter\DeskApp\LogicLayerInterface\obj\Debug\LogicLayerInterface.csproj.CopyComplete
+F:\Transporter\DeskApp\LogicLayerInterface\obj\Debug\LogicLayerInterface.dll
+F:\Transporter\DeskApp\LogicLayerInterface\obj\Debug\LogicLayerInterface.pdb
