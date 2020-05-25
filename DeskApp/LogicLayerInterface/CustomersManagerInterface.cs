@@ -10,5 +10,8 @@ namespace LogicLayerInterface
     public interface CustomersManagerInterface
     {
         List<Customer> GetAllCustomers();
+        bool AddCustomer(Customer customer);
+        bool UpdateCustomer(Customer oldCustomer, Customer newCustomer);
+        void ActivateCustomer(Customer customer);
     }
 }

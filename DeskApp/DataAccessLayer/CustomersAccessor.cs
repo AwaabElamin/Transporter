@@ -32,12 +32,11 @@ namespace DataAccessLayer
             {
                 try
                 {
-                    
 
                     conn.Open();
                     OleDbCommand cmd = new OleDbCommand();
                     cmd.Connection = conn;
-                    cmd.CommandText = @"select CustomerID, FirstName,	MiddleName,	LastName, PhoneNumber, Email, ReigonID, AddressLine, Active
+                    cmd.CommandText = @"select CustomerID, FirstName,	MiddleName,	LastName, PhoneNumber, Email, RegionID, AddressLine, Active
                                         
                                        from [Sheet1$];";
                     OleDbDataReader reader = cmd.ExecuteReader();
@@ -78,6 +77,60 @@ namespace DataAccessLayer
 
 
             return customers;
+        }
+
+        private bool InsertCustomerToDB(Customer customer) {
+            bool result = false;
+
+            
+            AppData.FilePath = "F:\\Transporter\\DeskApp\\OLEDB\\Customer.xlsx";
+            using (OleDbConnection conn = DBConnection.OLEConn())
+            {
+                try
+                {
+
+
+                    conn.Open();
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = conn;
+                    //
+                    cmd.CommandText =
+                        @"INSERT INTO  [Sheet1$] (CustomerID,FirstName,MiddleName,LastName,PhoneNumber,Email,RegionID,AddressLine,Active)
+                          VALUES('" +
+                           customer.CustomerID + "',' " +
+                           customer.FirstName + "',' " +
+                           customer.MiddleName + "',' " +
+                           customer.LastName + "',' " +
+                           customer.PhoneNumber + "',' " +
+                           customer.Email+ "',' " +
+                           customer.RegionID + "',' " +
+                           customer.AddressLine + "',' " +
+                           customer.Active + "');";
+                    int rows = cmd.ExecuteNonQuery();
+                    if (rows == 1)
+                    {
+                        result = true;
+                    }
+                   
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    conn.Close();
+                    conn.Dispose();
+                }
+
+            }
+
+
+
+
+            return result;
+
         }
 
         public bool ActivateCustomer(Customer customer)
@@ -131,9 +184,36 @@ namespace DataAccessLayer
             return result;
         }
 
-        public void InsertCustomer(Customer customer)
+        /// <summary>
+        /// insert a new item to customers list
+        /// </summary>
+        /// <remarks>
+        /// created by Awaab Elamin on 5/23/2020
+        /// </remarks>
+        /// <param name="customer"></param>
+        /// <returns></returns>
+        public bool InsertCustomer(Customer customer)
         {
+            bool result = false;
+            int listsize = customers.Count();
+            customer.CustomerID = (listsize + 1).ToString();
             customers.Add(customer);
+            if (listsize != customers.Count())
+            {
+                try
+                {
+                    result  = InsertCustomerToDB(customer);
+                    
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                
+            }
+
+            return result;
         }
 
         public Customer RetriveCustomerByEmail(string customerEmail)
@@ -244,25 +324,84 @@ namespace DataAccessLayer
         {
             bool result = false;
 
-            foreach (Customer customer in customers)
+            //foreach (Customer customer in customers)
+            //{
+            //    if ((customer.CustomerID == oldCustomer.CustomerID) && (customer.FirstName == oldCustomer.FirstName)
+            //        && (customer.MiddleName == oldCustomer.MiddleName) && (customer.LastName == oldCustomer.LastName)
+            //        && (customer.PhoneNumber == oldCustomer.PhoneNumber) && (customer.RegionID == oldCustomer.RegionID)
+            //        && (customer.Email == oldCustomer.Email) && (customer.AddressLine== oldCustomer.AddressLine))
+            //    {
+            //        customers.Remove(customer);
+            //        customers.Add(newCustomer);
+            //        break;
+            //    }
+            //}
+            AppData.FilePath = "F:\\Transporter\\DeskApp\\OLEDB\\Customer.xlsx";
+            using (OleDbConnection conn = DBConnection.OLEConn())
             {
-                if ((customer.CustomerID == oldCustomer.CustomerID) && (customer.FirstName == oldCustomer.FirstName)
-                    && (customer.MiddleName == oldCustomer.MiddleName) && (customer.LastName == oldCustomer.LastName)
-                    && (customer.PhoneNumber == oldCustomer.PhoneNumber) && (customer.RegionID == oldCustomer.RegionID)
-                    && (customer.Email == oldCustomer.Email) && (customer.AddressLine== oldCustomer.AddressLine))
+                try
                 {
-                    customers.Remove(customer);
-                    customers.Add(newCustomer);
-                    break;
+
+
+                    conn.Open();
+                    OleDbCommand cmd = new OleDbCommand();
+                    cmd.Connection = conn;
+                    //UPDATE table_name
+                    //SET column1 = value1, column2 = value2, ...
+                    //WHERE condition;
+                    cmd.CommandText =
+                          @"UPDATE  [Sheet1$] " +
+                          "SET " +
+                          "CustomerID = '" + newCustomer.CustomerID + "'," +
+                          "FirstName = '" + newCustomer.FirstName + "'," +
+                          "MiddleName = '" + newCustomer.MiddleName + "'," +
+                          "LastName = '" + newCustomer.LastName + "'," +
+                          "PhoneNumber = '" + newCustomer.PhoneNumber + "'," +
+                          "Email = '" + newCustomer.Email + "'," +
+                          "RegionID = '" + newCustomer.RegionID + "'," +
+                          "AddressLine = '" + newCustomer.AddressLine + "'," +
+                          "Active = '" + newCustomer.Active + "'"+
+                          " WHERE " +
+                          "CustomerID = '" + oldCustomer.CustomerID + "'" +
+                          " And FirstName = '" + oldCustomer.FirstName + "'" +
+                          " And MiddleName = '" + oldCustomer.MiddleName + "'" +
+                          " And LastName = '" + oldCustomer.LastName + "'" +
+                          " And PhoneNumber = '" + oldCustomer.PhoneNumber + "'" +
+                          " And Email = '" + oldCustomer.Email + "'" +
+                          " And RegionID = '" + oldCustomer.RegionID + "'" +
+                          " And AddressLine = '" + oldCustomer.AddressLine + "'" +
+                          " And Active = '" + oldCustomer.Active + "'";
+
+
+
+                    int rows = cmd.ExecuteNonQuery();
+                    if (rows == 1)
+                    {
+                        result = true;
+                    }
+
                 }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                finally
+                {
+                    conn.Close();
+                    conn.Dispose();
+                }
+
             }
+
 
             return result;
         }
 
         public List<Customer> RetrieveAllCustomers()
         {
-            return customers;
+            
+            return customers = retriveAllCustomers();
         }
     }
 }

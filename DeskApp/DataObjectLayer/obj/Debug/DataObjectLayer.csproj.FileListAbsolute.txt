@@ -21,3 +21,4 @@ F:\Transporter\DeskApp\DataObjectLayer\obj\Debug\DataObjectLayer.csproj.CoreComp
 F:\Transporter\DeskApp\DataObjectLayer\obj\Debug\DataObjectLayer.csproj.CopyComplete
 F:\Transporter\DeskApp\DataObjectLayer\obj\Debug\DataObjectLayer.dll
 F:\Transporter\DeskApp\DataObjectLayer\obj\Debug\DataObjectLayer.pdb
+F:\Transporter\DeskApp\DataObjectLayer\obj\Debug\DataObjectLayer.csprojAssemblyReference.cache

@@ -12,7 +12,7 @@ namespace DataAccessLayerInterface
     /// </summary>
     public interface CustomersAccessorInterface
     {
-        void InsertCustomer(Customer customer);
+        bool InsertCustomer(Customer customer);
         bool updateCustomer(Customer oldCustomer, Customer newCustomer);
         bool DeleteCustomer(Customer customer);
         bool ActivateCustomer(Customer customer);
