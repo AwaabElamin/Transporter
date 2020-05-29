@@ -8,6 +8,7 @@ namespace DataObjectLayer
 {
     public class AppData
     {
-        public static string FilePath { get; set; }
+        public static string CustomersFilePath { get; set; }
+        public static string RegionsFilePath { get; set; }
     }
 }

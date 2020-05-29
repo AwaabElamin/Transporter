@@ -5,482 +5,639 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DeskTop.Customers"
       mc:Ignorable="d" 
-      Height="600" Width="800" FontSize="18"
-      Title="Customers">
-    <Canvas x:Name ="CanMainCustomer" Visibility="Visible" HorizontalAlignment="Left"  Height="auto" Width="auto">
-        <!--we distribute the convas to Tabs, each tab represent feature or page-->
-        <TabControl x:Name="TabCustomers" Height="auto" Width="auto">
-            <!--each tab can present many items-->
-            <TabItem x:Name="TabViewCustomer" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1" GotFocus="TabViewCustomer_GotFocus">
-                <TabItem.Effect>
-                    <DropShadowEffect/>
-                </TabItem.Effect>
-                <!--Tab header allow us to give the header more details-->
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
-                        <TextBlock >All Customers</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
+      Height="Auto" Width="Auto" FontSize="18"
+      Title="Customers" Loaded="Page_Loaded">
+    <Canvas x:Name ="CanMainCustomer" Visibility="Visible" HorizontalAlignment="Left"  
+            Height="auto" Width="auto">
+        <Grid x:Name="GridMainCustomer" Visibility="Visible" HorizontalAlignment="Center"
+              Width="auto" Height="auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TabControl x:Name="TabCustomers" Visibility="Visible" Height="auto" Width="auto">
+                    <!--each tab can present many items-->
+                    <TabItem x:Name="TabViewCustomer" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1" GotFocus="TabViewCustomer_GotFocus">
+                        <TabItem.Effect>
+                            <DropShadowEffect/>
+                        </TabItem.Effect>
+                        <!--Tab header allow us to give the header more details-->
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
+                                <TextBlock >All Customers</TextBlock>
+                            </StackPanel>
+                        </TabItem.Header>
 
-            </TabItem>
-            <TabItem x:Name="TabAddCustomer" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1" GotFocus="TabAddCustomer_GotFocus">
+                    </TabItem>
+                    <TabItem x:Name="TabAddCustomer" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1" GotFocus="TabAddCustomer_GotFocus">
+                        <TabItem.Effect>
+                            <DropShadowEffect/>
+                        </TabItem.Effect>
+                        <!--Tab header allow us to give the header more details-->
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
+                                <TextBlock>Add A Customer</TextBlock>
+                            </StackPanel>
+                        </TabItem.Header>
+
+                    </TabItem>
+                    <TabItem x:Name="TabEditCustomer"  FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1" GotFocus="TabEditCustomer_GotFocus">
+                        <TabItem.Effect>
+                            <DropShadowEffect/>
+                        </TabItem.Effect>
+                        <!--Tab header allow us to give the header more details-->
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
+                                <TextBlock>Edit A Customer</TextBlock>
+                            </StackPanel>
+                        </TabItem.Header>
+
+                    </TabItem>
+                    <TabItem x:Name="TabDeactiveCustomers"  FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1" GotFocus="TabDeactiveCustomers_GotFocus">
+                        <TabItem.Effect>
+                            <DropShadowEffect/>
+                        </TabItem.Effect>
+                        <!--Tab header allow us to give the header more details-->
+                        <TabItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
+                                <TextBlock>Deactive Customers</TextBlock>
+                            </StackPanel>
+                        </TabItem.Header>
+
+                    </TabItem>
+                    <!--<TabItem x:Name="TabAddCustomer5"  FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1">
                 <TabItem.Effect>
                     <DropShadowEffect/>
                 </TabItem.Effect>
-                <!--Tab header allow us to give the header more details-->
+                -->
+                    <!--Tab header allow us to give the header more details-->
+                    <!--
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
-                        <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
+                        -->
+                    <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
+                    <!--
                         <TextBlock>Add A Customer</TextBlock>
                     </StackPanel>
                 </TabItem.Header>
 
-            </TabItem>
-            <TabItem x:Name="TabEditCustomer"  FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1" GotFocus="TabEditCustomer_GotFocus">
-                <TabItem.Effect>
-                    <DropShadowEffect/>
-                </TabItem.Effect>
-                <!--Tab header allow us to give the header more details-->
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
-                        <TextBlock>Edit A Customer</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
-
-            </TabItem>
-            <TabItem x:Name="TabDeactiveCustomers"  FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1" GotFocus="TabDeactiveCustomers_GotFocus">
-                <TabItem.Effect>
-                    <DropShadowEffect/>
-                </TabItem.Effect>
-                <!--Tab header allow us to give the header more details-->
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
-                        <TextBlock>Deative Customers</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
-
-            </TabItem>
-            <TabItem x:Name="TabAddCustomer5"  FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" BorderThickness="2,2,1,1">
-                <TabItem.Effect>
-                    <DropShadowEffect/>
-                </TabItem.Effect>
-                <!--Tab header allow us to give the header more details-->
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Ellipse Width="10" Height="10" Fill="DarkGray"/>-->
-                        <TextBlock>Add A Customer</TextBlock>
-                    </StackPanel>
-                </TabItem.Header>
-
-            </TabItem>
-        </TabControl>
-        <Canvas x:Name="CanViewAllCustomer" Visibility="Visible" Height="auto" Width="auto" >           
-            <Grid Width="800" Height="450">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="300"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0"></Grid>
-                <Grid Grid.Row="1">
-                    <DataGrid x:Name="DGCustomerView" SelectionMode="Single" CanUserReorderColumns="False" IsReadOnly="True"/>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Button x:Name="btnCustomerInsert" Content="Add customer" Click="btnCustomerInsert_Click"/>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <Button x:Name="btnCustomerEdit" Content="Edit customer" Click="btnCustomerEdit_Click"/>
-                    </Grid>
-                    <Grid Grid.Column="2"></Grid>
-                    <Grid Grid.Column="3"></Grid>
-                </Grid>
-                <Grid Grid.Row="3">
-                    <Label x:Name="lblCustomerError"/>
-                </Grid>
+            </TabItem>-->
+                </TabControl>
             </Grid>
-        </Canvas>
-        <Canvas x:Name="CanCustomerAdd" Visibility="hidden" Height="auto" Width="auto">
-            <Grid Width="800" Height="450">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <!--<Label x:Name="lblCustomerAddHeader" Content="Add A Customer" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>-->
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>                     
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerAddFirstName" Content="First Name" Height="40"/>
+            <Grid Grid.Row="1">
+                <!--we distribute the convas to Tabs, each tab represent feature or page-->
+
+                <Canvas x:Name="CanViewAllCustomer" Visibility="Visible" Height="auto" Width="auto" >
+                    <Grid Width="Auto" Height="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"></Grid>
+                        <Grid Grid.Row="1" Margin="0 5">
+                            <DataGrid x:Name="DGCustomerView" SelectionMode="Single"
+                              CanUserReorderColumns="False" IsReadOnly="True"/>
                         </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerAddFirstName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerAddFirstName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Button x:Name="btnCustomerInsert" Content="Add customer" Click="btnCustomerInsert_Click"/>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Button x:Name="btnCustomerEdit" Content="Edit customer" Click="btnCustomerEdit_Click"/>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Button x:Name="btnCustomerActive" Content="Active customers" Click="btnCustomerAllActive_Click"/>
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <Button x:Name="btnCustomerDeactive" Content="Deactive customers" Click="btnCustomerAllDeactive_Click"/>
+                            </Grid>
+                            <Grid Grid.Column="4">
+                                <Button x:Name="btnCustomerAll" Content="All customers" Click="btnCustomerAll_Click"/>
+                            </Grid>
                         </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerAddMIDName" Content="Middle Name" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerAddMIDName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerAddMIDName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerAddLastName" Content="Last Name" Height="40" />
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerAddLastName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerAddLastName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerAddPhoneNumber" Content="Phone Number" Height="40" />
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerAddPhoneNumber" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"
-                                     />
-                            <Ellipse x:Name="ElipCustomerAddPhoneNumber" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerAddEmail" Content="Email" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerAddEmail" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerAddEmail" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerAddRegionID" Content="region" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerAddRegionID" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerAddRegionID" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="6">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerAddAddressLine" Content="Address Line" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerAddAddressLine" Width="430" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            
-                        </Grid>
-                        <Grid Grid.Column="2">
-                            <Ellipse x:Name="ElipCustomerAddAddressLine" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                            
-                        </Grid>
-                    </Grid>
-                    <Grid Grid.Row="7">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerAddActive" Content="Active" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <CheckBox x:Name="chkCustomerAddActive" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" IsChecked="True"/>
-                            <!--<TextBox x:Name="txtCustomerAddActive" Width="600" HorizontalAlignment="Left"/>-->
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Button x:Name="btnCustomerAddSubmit" VerticalContentAlignment="Center" Width="100" Content="submit"   Background="#fff8e3" Foreground="#2e3137" HorizontalAlignment="Left" Click="btnCustomerAddSubmit_Click">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="15"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <Label x:Name="lblCustomerAddError" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FFE20F0F"
-                           Content="Test test Test test test test test test test " Height="40" />
-                    </Grid>
-                    
-                </Grid>
-            </Grid>
-        </Canvas>
-        <Canvas x:Name="CanCustomerEdit" Visibility="Hidden" Height="auto" Width="auto">
-            <Grid Width="800" Height="450">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition/>
-                    <RowDefinition Height="30"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <!--<Label x:Name="lblCustomerEditHeader" Content="Edit A Customer" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>-->
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                        <RowDefinition Height="45"/>
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerEditFirstName" Content="First Name" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerEditFirstName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerEditFirstName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerEditMIDName" Content="Middle Name" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerEditMIDName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerEditMIDName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerEditLastName" Content="Last Name" Height="40" />
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerEditLastName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerEditLastName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="3">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerEditPhoneNumber" Content="Phone Number" Height="40" />
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerEditPhoneNumber" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"
-                                     />
-                            <Ellipse x:Name="ElipCustomerEditPhoneNumber" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="4">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerEditEmail" Content="Email" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerEditEmail" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerEditEmail" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerEditRegionID" Content="region" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerEditRegionID" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
-                            <Ellipse x:Name="ElipCustomerEditRegionID" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
-                        </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                    <Grid Grid.Row="6">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerEditAddressLine" Content="Address Line" Height="40"/>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <TextBox x:Name="txtCustomerEditAddressLine" Width="430" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                        <Grid Grid.Row="3" Margin="0 5" Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label x:Name="lblCustomerRegionsFilter" Content=" Regions " 
+                                       HorizontalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <ComboBox x:Name="cmboCustomerRegionsFilter" 
+                                          DropDownClosed="cmboCustomerRegionsFilter_DropDownClosed"/>
+                                    </Grid>
+
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label x:Name="lblCustomerphoneNumberFilter" Content=" Phone " HorizontalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox x:Name="txtCustomerPhoneNumberFilter" Width="140" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Button x:Name="btnCustomerPhoneNumberFilter" Content="Go" HorizontalAlignment="Right" Click="btnCustomerPhoneNumberFilter_Click"/>
+                                    </Grid>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <Label x:Name="lblCustomerEmailFilter" Content=" Email " HorizontalAlignment="Center"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBox x:Name="txtCustomerEmailFilter" Width="140" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <Button x:Name="btnCustomerEmailFilter" Content="Go" HorizontalAlignment="Right" Click="btnCustomerEmailFilter_Click"/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
 
                         </Grid>
-                        <Grid Grid.Column="2">
-                            <Ellipse x:Name="ElipCustomerEditAddressLine" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                        <Grid Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.MenuBarBrushKey}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerFirstNameFilter" Content=" First Name " HorizontalAlignment="Center"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerFirstNameFilter" Width="120" HorizontalAlignment="Left"/>
+
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Button x:Name="btnCustomerFirstNameFilter" Content="Go" HorizontalAlignment="Right" Click="btnCustomerFirstNameFilter_Click"/>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerMidNameFilter" Content=" Middle Name " HorizontalAlignment="Center"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerMidNameFilter" Width="120" HorizontalAlignment="Left"/>
+
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Button x:Name="btnCustomerMidNameFilter" Content="Go" HorizontalAlignment="Right" Click="btnCustomerMidNameFilter_Click"/>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerLastNameFilter" Content=" Last Name " HorizontalAlignment="Center"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerLastNameFilter" Width="120" HorizontalAlignment="Left"/>
+
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Button x:Name="btnCustomerLastNameFilter" Content="Go" HorizontalAlignment="Right" Click="btnCustomerLastNameFilter_Click"/>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="5">
+                            <Label x:Name="lblCustomerError"/>
+                        </Grid>
+                    </Grid>
+                </Canvas>
+                <Canvas x:Name="CanCustomerAdd" Visibility="hidden" Height="auto" Width="auto">
+                    <Grid Width="800" Height="450">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <!--<Label x:Name="lblCustomerAddHeader" Content="Add A Customer" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>-->
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerAddFirstName" Content="First Name" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerAddFirstName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                                    <Ellipse x:Name="ElipCustomerAddFirstName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerAddMIDName" Content="Middle Name" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerAddMIDName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                                    <Ellipse x:Name="ElipCustomerAddMIDName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerAddLastName" Content="Last Name" Height="40" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerAddLastName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                                    <Ellipse x:Name="ElipCustomerAddLastName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerAddPhoneNumber" Content="Phone Number" Height="40" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerAddPhoneNumber" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"
+                                     />
+                                    <Ellipse x:Name="ElipCustomerAddPhoneNumber" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerAddEmail" Content="Email" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerAddEmail" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                                    <Ellipse x:Name="ElipCustomerAddEmail" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerAddRegionID" Content="region" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerAddRegionID" Width="200" HorizontalAlignment="Left"
+                                     Height="40" BorderThickness="1,1,2,2" Visibility="Hidden"/>
+                                    <ComboBox x:Name="comboCustomerAddRegionID" Width="200" HorizontalAlignment="Left" 
+                                      Height="40" BorderThickness="1,1,2,2">
+
+                                    </ComboBox>
+                                    <Ellipse x:Name="ElipCustomerAddRegionID" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerAddAddressLine" Content="Address Line" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerAddAddressLine" Width="430" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Ellipse x:Name="ElipCustomerAddAddressLine" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="7">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerAddActive" Content="Active" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <CheckBox x:Name="chkCustomerAddActive" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" IsChecked="True"/>
+                                    <!--<TextBox x:Name="txtCustomerAddActive" Width="600" HorizontalAlignment="Left"/>-->
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Button x:Name="btnCustomerAddSubmit" VerticalContentAlignment="Center" Width="100" Content="submit"   Background="#fff8e3" Foreground="#2e3137" HorizontalAlignment="Left" Click="btnCustomerAddSubmit_Click">
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Label x:Name="lblCustomerAddError" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FFE20F0F"
+                           Content="" Height="40" />
+                            </Grid>
 
                         </Grid>
                     </Grid>
-                    <Grid Grid.Row="7">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="130"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="180"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Label x:Name="lblCustomerEditActive" Content="Active" Height="40"/>
+                </Canvas>
+                <Canvas x:Name="CanCustomerEdit" Visibility="Hidden" Height="auto" Width="auto">
+                    <Grid Width="800" Height="450">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <!--<Label x:Name="lblCustomerEditHeader" Content="Edit A Customer" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>-->
                         </Grid>
-                        <Grid Grid.Column="1">
-                            <CheckBox x:Name="chkCustomerEditActive" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" IsChecked="True"/>
-                            <!--<TextBox x:Name="txtCustomerAddActive" Width="600" HorizontalAlignment="Left"/>-->
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                                <RowDefinition Height="45"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerEditFirstName" Content="First Name" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerEditFirstName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                                    <Ellipse x:Name="ElipCustomerEditFirstName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerEditMIDName" Content="Middle Name" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerEditMIDName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                                    <Ellipse x:Name="ElipCustomerEditMIDName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerEditLastName" Content="Last Name" Height="40" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerEditLastName" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                                    <Ellipse x:Name="ElipCustomerEditLastName" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerEditPhoneNumber" Content="Phone Number" Height="40" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerEditPhoneNumber" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"
+                                     />
+                                    <Ellipse x:Name="ElipCustomerEditPhoneNumber" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="4">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerEditEmail" Content="Email" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerEditEmail" Width="200" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+                                    <Ellipse x:Name="ElipCustomerEditEmail" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
+                            <Grid Grid.Row="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="220"/>
+                                    <ColumnDefinition Width="300"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerEditRegionID" Content="region" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerEditRegionID" Width="200" HorizontalAlignment="Left" 
+                                     Height="40" BorderThickness="1,1,2,2" Visibility="Visible" IsReadOnly="True"/>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <ComboBox x:Name="ComboCustomerEditRegionID" Width="200" HorizontalAlignment="Left" 
+                                     Height="40" BorderThickness="1,1,2,2" DropDownClosed="ComboCustomerEditRegionID_DropDownClosed"/>
+                                    <Ellipse x:Name="ElipCustomerEditRegionID" Visibility="Hidden" 
+                                     Width="10" Height="10" Fill="Red" HorizontalAlignment="Right"/>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="6">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerEditAddressLine" Content="Address Line" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="txtCustomerEditAddressLine" Width="430" HorizontalAlignment="Left" Height="40" BorderThickness="1,1,2,2"/>
+
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Ellipse x:Name="ElipCustomerEditAddressLine" Visibility="Hidden" Width="10" Height="10" Fill="Red"/>
+
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="7">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="180"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Label x:Name="lblCustomerEditActive" Content="Active" Height="40"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <CheckBox x:Name="chkCustomerEditActive" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" IsChecked="True"/>
+                                    <!--<TextBox x:Name="txtCustomerAddActive" Width="600" HorizontalAlignment="Left"/>-->
+                                </Grid>
+                                <Grid Grid.Column="2"></Grid>
+                            </Grid>
                         </Grid>
-                        <Grid Grid.Column="2"></Grid>
-                    </Grid>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Button x:Name="btnCustomerEditSubmit" VerticalContentAlignment="Center" Width="100" 
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Button x:Name="btnCustomerEditSubmit" VerticalContentAlignment="Center" Width="100" 
                                 Content="submit"   Background="#fff8e3" Foreground="#2e3137" 
                                 HorizontalAlignment="Left" Click="btnCustomerEditSubmit_Click">
-                            <Button.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="CornerRadius" Value="15"/>
-                                </Style>
-                            </Button.Resources>
-                        </Button>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <Label x:Name="lblCustomerEditError" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FFE20F0F"
+                                    <Button.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="15"/>
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Label x:Name="lblCustomerEditError" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FFE20F0F"
                            Content=" " Height="40" />
-                    </Grid>
+                            </Grid>
 
-                </Grid>
-            </Grid>
-        </Canvas>
-        <Canvas x:Name="CanCustomerDeactive" Visibility="Hidden" Height="auto" Width="auto">
-            <Grid Width="800" Height="450">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="300"/>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="40"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0"></Grid>
-                <Grid Grid.Row="1">
-                    <DataGrid x:Name="DGCustomerDeativeView" SelectionMode="Single" CanUserReorderColumns="False" IsReadOnly="True"/>
-                </Grid>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <Button x:Name="btnCustomerDelete" Content="Delete customer" Click="btnCustomerDelete_Click"/>
+                        </Grid>
                     </Grid>
-                    <Grid Grid.Column="1">
-                        <Button x:Name="btnCustomerActivate" Content="Activate customer" Click="btnCustomerActive_Click"/>
+                </Canvas>
+                <Canvas x:Name="CanCustomerDeactive" Visibility="Hidden" Height="auto" Width="auto">
+                    <Grid Width="800" Height="450">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="300"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="80"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0"></Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid x:Name="DGCustomerDeativeView" SelectionMode="Single" CanUserReorderColumns="False" IsReadOnly="True"/>
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Button x:Name="btnCustomerDelete" Content="Delete customer" Click="btnCustomerDelete_Click"/>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Button x:Name="btnCustomerActivate" Content="Activate customer" Click="btnCustomerActive_Click"/>
+                            </Grid>
+                            <Grid Grid.Column="2"></Grid>
+                            <Grid Grid.Column="3"></Grid>
+                        </Grid>
+                        <Grid Grid.Row="3">
+                            <Label x:Name="lblCustomerDeactiveError"/>
+                        </Grid>
                     </Grid>
-                    <Grid Grid.Column="2"></Grid>
-                    <Grid Grid.Column="3"></Grid>
-                </Grid>
-                <Grid Grid.Row="3">
-                    <Label x:Name="lblCustomerDeactiveError"/>
-                </Grid>
+                </Canvas>
             </Grid>
-        </Canvas>
+        </Grid>
+       
     </Canvas>
     
     

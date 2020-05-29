@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomersManagerInterface.cs" />
+    <Compile Include="Customers\CustomersManagerInterface.cs" />
+    <Compile Include="Manager\RegionsManagerInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,3 @@
-F:\Transporter\DeskApp\LogicLayer\obj\Debug\LogicLayer.csproj.CoreCompileInputs.cache
 F:\Transporter\DeskApp\LogicLayer\bin\Debug\LogicLayer.dll.config
 F:\Transporter\DeskApp\LogicLayer\bin\Debug\LogicLayer.dll
 F:\Transporter\DeskApp\LogicLayer\bin\Debug\LogicLayer.pdb
@@ -15,6 +14,7 @@ F:\Transporter\DeskApp\LogicLayer\bin\Debug\DataObjectLayer.dll.config
 F:\Transporter\DeskApp\LogicLayer\bin\Debug\LogicLayerInterface.pdb
 F:\Transporter\DeskApp\LogicLayer\bin\Debug\LogicLayerInterface.dll.config
 F:\Transporter\DeskApp\LogicLayer\obj\Debug\LogicLayer.csprojAssemblyReference.cache
+F:\Transporter\DeskApp\LogicLayer\obj\Debug\LogicLayer.csproj.CoreCompileInputs.cache
 F:\Transporter\DeskApp\LogicLayer\obj\Debug\LogicLayer.csproj.CopyComplete
 F:\Transporter\DeskApp\LogicLayer\obj\Debug\LogicLayer.dll
 F:\Transporter\DeskApp\LogicLayer\obj\Debug\LogicLayer.pdb

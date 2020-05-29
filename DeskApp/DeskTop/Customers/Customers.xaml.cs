@@ -13,9 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LogicLayer;
-using LogicLayerInterface;
+using LogicLayerInterface.Customers;
 using DataObjectLayer;
 using System.Text.RegularExpressions;
+using LogicLayerInterface.Manager;
+using LogicLayer.Manager;
 
 namespace DeskTop.Customers
 {
@@ -34,6 +36,7 @@ namespace DeskTop.Customers
         private List<Customer> customers  = new List<Customer>();
         private List<Customer> activeCustomers  = new List<Customer>();
         private List<Customer> deactiveCustomers  = new List<Customer>();
+        List<Region> regions = new List<Region>();
 
         /// <summary>
         /// default constructor assigned a refrence to customers manger and
@@ -50,22 +53,22 @@ namespace DeskTop.Customers
             customers.Clear();
             activeCustomers.Clear();
             deactiveCustomers.Clear();
-            customers = customersManager.GetAllCustomers();
+            //customers = customersManager.GetAllCustomers();
             
-            foreach (Customer customer in customers)
-            {
-                if (customer.Active == true)
-                {
-                    activeCustomers.Add(customer);
-                }
-                else
-                {
-                    deactiveCustomers.Add(customer);
-                }
-            }
-            DGCustomerView.ItemsSource = activeCustomers;
+            //foreach (Customer customer in customers)
+            //{
+            //    if (customer.Active == true)
+            //    {
+            //        activeCustomers.Add(customer);
+            //    }
+            //    else
+            //    {
+            //        deactiveCustomers.Add(customer);
+            //    }
+            //}
+            //DGCustomerView.ItemsSource = activeCustomers;
 
-            DGCustomerDeativeView.ItemsSource = deactiveCustomers;
+            //DGCustomerDeativeView.ItemsSource = deactiveCustomers;
         }
 
         /// <summary>
@@ -79,6 +82,14 @@ namespace DeskTop.Customers
         /// <param name="e"></param>
         private void btnCustomerInsert_Click(object sender, RoutedEventArgs e)
         {
+            //we need to retrieve regionsIds. So, the entry can choose the region from
+            //drop list
+            RegionsManagerInterface regionsManager = new RegionsManager();
+            List<Region> regions = regionsManager.retrieveAllRegions();
+            foreach (var item in regions)
+            {
+                comboCustomerAddRegionID.Items.Add(item.RegionId);
+            }
             CanViewAllCustomer.Visibility = Visibility.Hidden;
             CanCustomerAdd.Visibility = Visibility.Visible;
             TabAddCustomer.Focus();
@@ -107,8 +118,11 @@ namespace DeskTop.Customers
         {
             string phoneNumber = "";
             string email = "";
+
+            
+            
             //first, validate the data entry
-                //first name
+            //first name
             if ((txtCustomerAddFirstName.Text == "") || (txtCustomerAddFirstName.Text == null))
             {
                 lblCustomerAddError.Content = "Please Add the First Name";
@@ -182,7 +196,7 @@ namespace DeskTop.Customers
            
 
             //Region 
-            if ((txtCustomerAddRegionID.Text == "") || (txtCustomerAddRegionID.Text == null))
+            if ((comboCustomerAddRegionID.Text == "") || (comboCustomerAddRegionID.Text == null))
             {
                 lblCustomerAddError.Content = "Please Add the Region ID";
                 ElipCustomerAddRegionID.Visibility = Visibility.Visible;
@@ -211,12 +225,12 @@ namespace DeskTop.Customers
             //A- create an object with a refrence to Customer
             Customer customer = new Customer();
             //B- fill all elements of customer
-            customer.FirstName = txtCustomerAddFirstName.Text;
+            customer.FirstName = txtCustomerAddFirstName.Text.Trim();
             customer.MiddleName = txtCustomerAddMIDName.Text;
             customer.LastName = txtCustomerAddLastName.Text;
             customer.PhoneNumber = phoneNumber;
             customer.Email = email;
-            customer.RegionID = txtCustomerAddRegionID.Text;
+            customer.RegionID = comboCustomerAddRegionID.Text;
             customer.AddressLine = txtCustomerAddAddressLine.Text;
             customer.Active = chkCustomerAddActive.IsChecked.Value;
 
@@ -230,7 +244,7 @@ namespace DeskTop.Customers
                     txtCustomerAddLastName.Text = "";
                     txtCustomerAddPhoneNumber.Text = "";
                     txtCustomerAddEmail.Text = "";
-                    txtCustomerAddRegionID.Text = "";
+                    comboCustomerAddRegionID.Text = "";
                     txtCustomerAddAddressLine.Text = "";
                     chkCustomerAddActive.IsChecked = true;
                     lblCustomerAddError.Content = "Customer Added Correctly";
@@ -252,34 +266,19 @@ namespace DeskTop.Customers
 
         private void TabViewCustomer_GotFocus(object sender, RoutedEventArgs e)
         {
-            TabCustomers.Focus();
-            DGCustomerView.ItemsSource = null;
-            customers.Clear();
-            activeCustomers.Clear();
-            deactiveCustomers.Clear();
-            customers = customersManager.GetAllCustomers();
-            
-
-            foreach (Customer customer in customers)
-            {
-                if (customer.Active == true)
-                {
-                    activeCustomers.Add(customer);
-                }
-                else
-                {
-                    deactiveCustomers.Add(customer);
-                }
-            }
-
-            DGCustomerView.ItemsSource = activeCustomers;
-            DGCustomerDeativeView.ItemsSource = deactiveCustomers;
-
             switchCanvas("Active");
         }
 
         private void TabAddCustomer_GotFocus(object sender, RoutedEventArgs e)
         {
+            //we need to retrieve regionsIds. So, the entry can choose the region from
+            //drop list
+            RegionsManagerInterface regionsManager = new RegionsManager();
+            List<Region> regions = regionsManager.retrieveAllRegions();
+            foreach (var item in regions)
+            {
+                comboCustomerAddRegionID.Items.Add(item.RegionId);
+            }
             TabAddCustomer.Focus();
             switchCanvas("Add");
         }
@@ -325,6 +324,7 @@ namespace DeskTop.Customers
 
             if (customersManager.UpdateCustomer(oldCustomer, NewCustomer))
             {
+                lblCustomerEditError.Content = "";
                 txtCustomerEditFirstName.Text = "";
                 txtCustomerEditMIDName.Text = "";
                 txtCustomerEditPhoneNumber.Text = "";
@@ -360,7 +360,7 @@ namespace DeskTop.Customers
             else
             {
                 lblCustomerEditError.Content = "Did not updated yet. please try a gain";
-                switchCanvas("Edit");
+                return;
             }
         }
 
@@ -375,7 +375,14 @@ namespace DeskTop.Customers
             }
 
             lblCustomerError.Content = "";
-
+            
+            RegionsManager regionsManager = new RegionsManager();
+            regions = regionsManager.retrieveAllRegions();
+            ComboCustomerEditRegionID.Items.Clear();
+            foreach (var item in regions)
+            {
+                ComboCustomerEditRegionID.Items.Add(item.RegionId);
+            }
             switchCanvas("Edit");
 
             
@@ -396,14 +403,36 @@ namespace DeskTop.Customers
 
         private void btnCustomerDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (DGCustomerDeativeView.SelectedItem == null)
+            {
+                lblCustomerDeactiveError.Content = "Please select a customer";
+                return;
+            }
+            Customer customer = (Customer)DGCustomerDeativeView.SelectedItem;
+            try
+            {
+                //please note that OLEDB does not support DELETE query.
+                //for now we close this feature till we develope to SQL
+                //customersManager.deleteCustomer(customer);
+                //updateCustomersLists();
+                //updateGrids();
+                lblCustomerDeactiveError.Content = "please note that Excel sheet does not support delete feature.\n" +
+                    "for now we close this feature till we develope to SQL";
+            }
+            catch (Exception ex)
+            {
 
+                lblCustomerDeactiveError.Content = "There is an issue happen while trying to \n" +
+                    "delete a customer" + ex.Message;
+                return;
+            }
         }
 
         private void btnCustomerActive_Click(object sender, RoutedEventArgs e)
         {
             if (DGCustomerDeativeView.SelectedItem == null)
             {
-                lblCustomerDeactiveError.Content = "Please select  a customer";
+                lblCustomerDeactiveError.Content = "Please select a customer";
                 return;
             }
 
@@ -426,8 +455,13 @@ namespace DeskTop.Customers
         {
             DGCustomerView.ItemsSource = null;
             DGCustomerDeativeView.ItemsSource = null;
-            DGCustomerView.ItemsSource = activeCustomers;
+            DGCustomerView.ItemsSource = customers;
             DGCustomerDeativeView.ItemsSource = deactiveCustomers;
+            ComboCustomerEditRegionID.Items.Clear();
+            foreach (var item in regions)
+            {
+                cmboCustomerRegionsFilter.Items.Add(item.RegionId);
+            }
         }
 
         private void updateCustomersLists()
@@ -447,6 +481,9 @@ namespace DeskTop.Customers
                     deactiveCustomers.Add(customer);
                 }
             }
+           
+            RegionsManager regionsManager = new RegionsManager();
+            regions = regionsManager.retrieveAllRegions();
         }
 
         private void TabDeactiveCustomers_GotFocus(object sender, RoutedEventArgs e)
@@ -502,6 +539,136 @@ namespace DeskTop.Customers
                     break;
             }
 
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            TabCustomers.Focus();
+            updateCustomersLists();
+            updateGrids();
+
+
+            switchCanvas("Active");
+        }
+
+        private void ComboCustomerEditRegionID_DropDownClosed(object sender, EventArgs e)
+        {
+            txtCustomerEditRegionID.Text = ComboCustomerEditRegionID.Text;
+        }
+
+        private void btnCustomerAllActive_Click(object sender, RoutedEventArgs e)
+        {
+            updateCustomersLists();
+            DGCustomerView.ItemsSource = activeCustomers;
+        }
+
+        private void btnCustomerAllDeactive_Click(object sender, RoutedEventArgs e)
+        {
+            updateCustomersLists();
+            DGCustomerView.ItemsSource = deactiveCustomers;
+        }
+
+        
+
+        private void cmboCustomerRegionsFilter_DropDownClosed(object sender, EventArgs e)
+        {
+            string regionsSelected = cmboCustomerRegionsFilter.Text;
+            List<Customer> filterdCustomers = new List<Customer>();
+
+            foreach (var item in customers)
+            {
+                if (item.RegionID == regionsSelected)
+                {
+                    filterdCustomers.Add(item);
+                }
+            }
+
+            DGCustomerView.ItemsSource = filterdCustomers;
+        }
+
+        private void btnCustomerAll_Click(object sender, RoutedEventArgs e)
+        {
+            DGCustomerView.ItemsSource = customers;
+        }
+
+        private void btnCustomerPhoneNumberFilter_Click(object sender, RoutedEventArgs e)
+        {
+            string regionsSelected = txtCustomerPhoneNumberFilter.Text;
+            List<Customer> filterdCustomers = new List<Customer>();
+
+            foreach (var item in customers)
+            {
+                if (item.PhoneNumber == regionsSelected)
+                {
+                    filterdCustomers.Add(item);
+                }
+            }
+
+            DGCustomerView.ItemsSource = filterdCustomers;
+        }
+
+        private void btnCustomerEmailFilter_Click(object sender, RoutedEventArgs e)
+        {
+            string regionsSelected = txtCustomerEmailFilter.Text;
+            List<Customer> filterdCustomers = new List<Customer>();
+
+            foreach (var item in customers)
+            {
+                if (item.Email == regionsSelected)
+                {
+                    filterdCustomers.Add(item);
+                }
+            }
+
+            DGCustomerView.ItemsSource = filterdCustomers;
+        }
+
+        private void btnCustomerFirstNameFilter_Click(object sender, RoutedEventArgs e)
+        {
+            string regionsSelected = txtCustomerFirstNameFilter.Text;
+            List<Customer> filterdCustomers = new List<Customer>();
+
+            foreach (var item in customers)
+            {
+                if (item.FirstName == regionsSelected)
+                {
+                    filterdCustomers.Add(item);
+                }
+            }
+
+            DGCustomerView.ItemsSource = filterdCustomers;
+        }
+
+        private void btnCustomerMidNameFilter_Click(object sender, RoutedEventArgs e)
+        {
+            string regionsSelected = txtCustomerMidNameFilter.Text;
+            List<Customer> filterdCustomers = new List<Customer>();
+
+            foreach (var item in customers)
+            {
+                if (item.MiddleName == regionsSelected)
+                {
+                    filterdCustomers.Add(item);
+                }
+            }
+
+            DGCustomerView.ItemsSource = filterdCustomers;
+        }
+
+        private void btnCustomerLastNameFilter_Click(object sender, RoutedEventArgs e)
+        {
+            string regionsSelected = txtCustomerLastNameFilter.Text;
+            List<Customer> filterdCustomers = new List<Customer>();
+
+            foreach (var item in customers)
+            {
+                if (item.LastName == regionsSelected)
+                {
+                    filterdCustomers.Add(item);
+                }
+            }
+
+            DGCustomerView.ItemsSource = filterdCustomers;
         }
     }
 }

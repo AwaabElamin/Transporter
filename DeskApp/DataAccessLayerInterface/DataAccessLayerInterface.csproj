@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomersAccessorInterface.cs" />
+    <Compile Include="CustomersAccessorsInterfaces\CustomersAccessorInterface.cs" />
+    <Compile Include="ManagerAccessInterfaces\RegionsInterface.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

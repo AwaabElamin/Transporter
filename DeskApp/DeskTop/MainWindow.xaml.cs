@@ -42,19 +42,32 @@ namespace DeskTop
             {
                 case "Customer":
                     CanCustomers.Visibility = Visibility.Visible;
+                    CanManager.Visibility = Visibility.Hidden;
                     break;
                 case "Employee":
                     CanCustomers.Visibility = Visibility.Hidden;
+                    CanManager.Visibility = Visibility.Hidden;
+                    break;
+                case "Manager":
+                    CanCustomers.Visibility = Visibility.Hidden;
+                    CanManager.Visibility = Visibility.Visible;
                     break;
                 default:
                     CanCustomers.Visibility = Visibility.Hidden;
+                    CanManager.Visibility = Visibility.Hidden;
                     break;
             }
         }
 
         private void btnEmployees_Click(object sender, RoutedEventArgs e)
         {
+            
             switchScreen("Employee");
+        }
+
+        private void btnManager_Click(object sender, RoutedEventArgs e)
+        {
+            switchScreen("Manager");
         }
     }
 }

@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomersAccessor.cs" />
+    <Compile Include="CustomerAccesses\CustomersAccessor.cs" />
     <Compile Include="DBConnection.cs" />
+    <Compile Include="ManagerAccesses\RegionsAccess.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

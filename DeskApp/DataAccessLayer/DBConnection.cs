@@ -21,7 +21,7 @@ namespace DataAccessLayer
         /// created by Awaab Elamin on 5/21/2020
         /// reviewed by
         /// </remarks>
-        public static OleDbConnection OLEConn() {
+        public static OleDbConnection OLEConnCustomers() {
 
             // Connect EXCEL sheet with OLEDB using connection string
             OleDbConnection oleDb = new OleDbConnection();
@@ -30,18 +30,18 @@ namespace DataAccessLayer
             String connectionString = "";
 
             //check the extention of file to see if it xls or xlsx
-            FileInfo file = new FileInfo(AppData.FilePath);
+            FileInfo file = new FileInfo(AppData.CustomersFilePath);
             if (file.Extension == ".xls")
             {
                 // if the File extension is .XLS using below connection string
                 //In following sample 'szFilePath' is the variable for filePath
-                connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = '" + AppData.FilePath + "'; Extended Properties=\"Excel 8.0;HDR=YES;\"";
+                connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = '" + AppData.CustomersFilePath + "'; Extended Properties=\"Excel 8.0;HDR=YES;\"";
                 oleDb = new OleDbConnection(connectionString);
             }
             else if (file.Extension == ".xlsx")
             {
                 // if the File extension is .XLSX using below connection string
-                connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + AppData.FilePath + "';Extended Properties=\"Excel 12.0;HDR=YES;\"";
+                connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + AppData.CustomersFilePath + "';Extended Properties=\"Excel 12.0;HDR=YES;\"";
                 oleDb = new OleDbConnection(connectionString);
             }
             
@@ -51,6 +51,46 @@ namespace DataAccessLayer
 
             return oleDb;
         
+        }
+
+        /// <summary>
+        /// OLEConn connect to an excel sheet using OLEDBConnection
+        /// </summary>
+        /// <remarks>
+        /// created by Awaab Elamin on 5/21/2020
+        /// reviewed by
+        /// </remarks>
+        public static OleDbConnection OLEConnRegions()
+        {
+
+            // Connect EXCEL sheet with OLEDB using connection string
+            OleDbConnection oleDb = new OleDbConnection();
+
+            //connectionString contains the string path and connection
+            String connectionString = "";
+
+            //check the extention of file to see if it xls or xlsx
+            FileInfo file = new FileInfo(AppData.RegionsFilePath);
+            if (file.Extension == ".xls")
+            {
+                // if the File extension is .XLS using below connection string
+                //In following sample 'szFilePath' is the variable for filePath
+                connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source = '" + AppData.RegionsFilePath + "'; Extended Properties=\"Excel 8.0;HDR=YES;\"";
+                oleDb = new OleDbConnection(connectionString);
+            }
+            else if (file.Extension == ".xlsx")
+            {
+                // if the File extension is .XLSX using below connection string
+                connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + AppData.RegionsFilePath + "';Extended Properties=\"Excel 12.0;HDR=YES;\"";
+                oleDb = new OleDbConnection(connectionString);
+            }
+
+            //Note: here should have an else to assgine a value to connectionString if it is not has above Extensions
+
+
+
+            return oleDb;
+
         }
     }
 }

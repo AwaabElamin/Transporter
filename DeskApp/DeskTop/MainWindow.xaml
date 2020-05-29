@@ -64,7 +64,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                <Button x:Name="btnEmployees5" Content="Employees" Margin="10" Height="30" FontSize="12" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" >
+                <Button x:Name="btnManager" Content="Manager" Margin="10" Height="30" FontSize="12" FontWeight="Bold" Background="#fff8e3" Foreground="#2e3137" Click="btnManager_Click">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"/>
@@ -78,9 +78,12 @@
         <Grid Grid.Column="1" Height="auto" Width="auto">
 
             <!--Below is a customer convas-->
-            <Canvas x:Name="CanCustomers" Grid.ColumnSpan="3" Margin="0,0,0,-0.5" Height="auto" Width="auto">
+            <Canvas x:Name="CanCustomers"  Height="auto" Width="auto" Visibility="Hidden">
                 <Frame x:Name="frameCustomers" Source="./Customers/Customers.xaml" NavigationUIVisibility="Visible" Height="Auto" Width="Auto"/>
                 
+            </Canvas>
+            <Canvas x:Name="CanManager" Height="auto" Width="auto" Visibility="Hidden">
+                <Frame x:Name="frameRegions" Source="./Manager/Regions.xaml" NavigationUIVisibility="Visible" Height="Auto" Width="Auto"/>
             </Canvas>
             <!--this area to add a convas-->
 
