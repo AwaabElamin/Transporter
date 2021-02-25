@@ -12,3 +12,17 @@ F:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreComp
 F:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 F:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 F:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataAccessLayerInterface.dll
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataObjectLayer.dll
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataAccessLayerInterface.pdb
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataAccessLayerInterface.dll.config
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataObjectLayer.pdb
+D:\Transporter\DeskApp\DataAccessLayer\bin\Debug\DataObjectLayer.dll.config
+D:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.csprojAssemblyReference.cache
+D:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+D:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Transporter\DeskApp\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

@@ -88,6 +88,7 @@
 
             </TabItem>-->
                 </TabControl>
+                
             </Grid>
             <Grid Grid.Row="1">
                 <!--we distribute the convas to Tabs, each tab represent feature or page-->
@@ -250,7 +251,18 @@
                             </Grid>
                         </Grid>
                         <Grid Grid.Row="5">
-                            <Label x:Name="lblCustomerError"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Label x:Name="lblCustomerError"/>
+                            </Grid>
+                            <Grid Grid.Column="1"/>
+                            <Grid Grid.Column="2">
+                                <Button x:Name="btnCustomerReport" Click="btnCustomerReport_Click"/>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Canvas>

@@ -1,0 +1,11 @@
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Release\DataAccessLayerInterface.dll.config
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Release\DataAccessLayerInterface.dll
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Release\DataAccessLayerInterface.pdb
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Release\DataObjectLayer.dll
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Release\DataObjectLayer.pdb
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Release\DataObjectLayer.dll.config
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Release\DataAccessLayerInterface.csprojAssemblyReference.cache
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Release\DataAccessLayerInterface.csproj.CoreCompileInputs.cache
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Release\DataAccessLayerInterface.csproj.CopyComplete
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Release\DataAccessLayerInterface.dll
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Release\DataAccessLayerInterface.pdb

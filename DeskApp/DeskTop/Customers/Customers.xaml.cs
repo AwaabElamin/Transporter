@@ -670,5 +670,10 @@ namespace DeskTop.Customers
 
             DGCustomerView.ItemsSource = filterdCustomers;
         }
+
+        private void btnCustomerReport_Click(object sender, RoutedEventArgs e)
+        {
+            //CustomerRepoD:\Transporter\DeskApp\DeskTop\Customers\CustomerReport.rdlc
+        }
     }
 }

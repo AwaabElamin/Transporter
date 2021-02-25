@@ -18,10 +18,11 @@ namespace DataAccessLayer
     /// </remarks>
     public class CustomersAccessor : CustomersAccessorInterface
     {
-        private List<Customer> customers= null;
+       // private List<Customer> customers= null;
         public CustomersAccessor()
         {
-            AppData.CustomersFilePath = "F:\\Transporter\\DeskApp\\OLEDB\\Customer.xlsx";
+            AppData.CustomersFilePath = System.AppDomain.CurrentDomain.BaseDirectory + @"../../../" + @"OLEDB\Customer.xlsx";
+         //   AppData.CustomersFilePath = "F:\\Transporter\\DeskApp\\OLEDB\\Customer.xlsx";
             
         }
 
@@ -334,8 +335,6 @@ namespace DataAccessLayer
 
             return customers;
         }
-
-        
 
         //public Customer RetriveCustomerByEmail(string customerEmail)
         //    {

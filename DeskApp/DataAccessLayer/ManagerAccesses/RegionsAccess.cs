@@ -13,7 +13,8 @@ namespace DataAccessLayer.ManagerAccesses
     {
         public RegionsAccess()
         {
-            AppData.RegionsFilePath = "F:\\Transporter\\DeskApp\\OLEDB\\region.xlsx";
+            AppData.RegionsFilePath = System.AppDomain.CurrentDomain.BaseDirectory + @"../../../" + @"OLEDB\region.xlsx";
+           // AppData.RegionsFilePath = "F:\\Transporter\\DeskApp\\OLEDB\\region.xlsx";
         }
 
         public bool insertRegion(Region region)

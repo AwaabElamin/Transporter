@@ -9,3 +9,14 @@ F:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterfa
 F:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterface.csproj.CopyComplete
 F:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterface.dll
 F:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterface.pdb
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Debug\DataAccessLayerInterface.dll.config
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Debug\DataAccessLayerInterface.dll
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Debug\DataAccessLayerInterface.pdb
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Debug\DataObjectLayer.dll
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Debug\DataObjectLayer.pdb
+D:\Transporter\DeskApp\DataAccessLayerInterface\bin\Debug\DataObjectLayer.dll.config
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterface.csprojAssemblyReference.cache
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterface.csproj.CoreCompileInputs.cache
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterface.csproj.CopyComplete
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterface.dll
+D:\Transporter\DeskApp\DataAccessLayerInterface\obj\Debug\DataAccessLayerInterface.pdb

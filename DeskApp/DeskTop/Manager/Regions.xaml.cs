@@ -32,10 +32,7 @@ namespace DeskTop.Manager
             InitializeComponent();
            
         }
-
-       
-
-        private void switchCanvas(string canvasName)
+        private void switchRegionsCanvas(string canvasName)
         {
             switch (canvasName)
             {
@@ -61,8 +58,6 @@ namespace DeskTop.Manager
                     DGRegionsView.ItemsSource = regionsManager.retrieveAllRegions();
                     break;
                 case "Add":
-                   
-                    
 
                     CanViewAllRegions.Visibility = Visibility.Hidden;
                     CanAddRegion.Visibility = Visibility.Visible;
@@ -104,21 +99,16 @@ namespace DeskTop.Manager
                     break;
             }
         }
-
-        
-
         private void btnRegionInsert_Click(object sender, RoutedEventArgs e)
         {
-            switchCanvas("Add");
+            switchRegionsCanvas("Add");
         }
-
         private void btnRegionEdit_Click(object sender, RoutedEventArgs e)
         {
             
-            switchCanvas("Edit");
+            switchRegionsCanvas("Edit");
             
         }
-
         private void btnRegionAddSubmit_Click(object sender, RoutedEventArgs e)
         {
             if (Validation.isEmpty(txtRegionAddID.Text))
@@ -143,7 +133,7 @@ namespace DeskTop.Manager
                 if (regionsManager.addRegion(region))
                 {
                     
-                    switchCanvas("All");
+                    switchRegionsCanvas("All");
                 }
                 else
                 {
@@ -158,17 +148,15 @@ namespace DeskTop.Manager
                 return;
             }
         }
-
         private void TabViewRegion_GotFocus(object sender, RoutedEventArgs e)
         {
-            switchCanvas("All");
+            CanRegions.Visibility = Visibility.Visible;
+            switchRegionsCanvas("All");
         }
-
         private void TabRegionDeactive_GotFocus(object sender, RoutedEventArgs e)
         {
 
         }
-
         private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
            
@@ -178,7 +166,7 @@ namespace DeskTop.Manager
 
         private void TabAddRegion_GotFocus(object sender, RoutedEventArgs e)
         {
-            switchCanvas("Add");
+            switchRegionsCanvas("Add");
         }
 
         private void btnRegionEditSubmit_Click(object sender, RoutedEventArgs e)
@@ -192,7 +180,7 @@ namespace DeskTop.Manager
                 if (regionsManager.editRegion(Oldregion, newRegion))
                 {
 
-                    switchCanvas("All");
+                    switchRegionsCanvas("All");
                 }
                 else
                 {
@@ -212,7 +200,7 @@ namespace DeskTop.Manager
         private void TabEditRegion_GotFocus(object sender, RoutedEventArgs e)
         {
            
-            switchCanvas("Edit");
+            switchRegionsCanvas("Edit");
 
         }
 
