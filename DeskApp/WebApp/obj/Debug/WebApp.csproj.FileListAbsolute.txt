@@ -1,2 +1,0 @@
-F:\Transporter\DeskApp\WebApp\obj\Debug\WebApp.csprojAssemblyReference.cache
-F:\Transporter\DeskApp\WebApp\obj\Debug\WebApp.csproj.CoreCompileInputs.cache

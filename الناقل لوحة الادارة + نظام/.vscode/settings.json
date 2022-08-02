@@ -1,6 +1,0 @@
-{
-    "i18n-ally.localesPaths": [
-        "resources/lang",
-        "resources/views/admin/language"
-    ]
-}
